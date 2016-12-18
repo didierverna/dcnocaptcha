@@ -16,7 +16,7 @@ if (!defined('DC_RC_PATH')){return;}
 $core->blog->settings->addNamespace('recaptcha');
 
 # Lib
-require_once dirname(__FILE__).'/lib/recaptcha-php-1.11/recaptchalib.php';
+require_once dirname(__FILE__).'/lib/recaptcha/src/autoload.php';
 
 # behaviors
 $core->addBehavior('publicHeadContent',array('recaptchaBhv','publicheadContent'));
