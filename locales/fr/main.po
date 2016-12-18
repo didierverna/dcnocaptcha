@@ -1,0 +1,85 @@
+# Language: Français
+# Module: recaptcha - 0.1
+# Date: 2011-12-04 18:46:43
+# Translated with translater 1.5
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: recaptcha 0.1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-12-04T18:46:43+00:00\n"
+"Last-Translator: Tof\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _admin.php:55
+msgid "Enable reCAPTCHA for this blog"
+msgstr "Activer reCAPTCHA pour ce blog"
+
+#: _admin.php:58
+msgid "Theme:"
+msgstr "Thème"
+
+#: _admin.php:60
+msgid "red"
+msgstr "rouge"
+
+#: _admin.php:63
+msgid "white"
+msgstr "blanc"
+
+#: _admin.php:66
+msgid "blackglass"
+msgstr "noire"
+
+#: _admin.php:69
+msgid "clean"
+msgstr "clair"
+
+#: _public.php:66
+msgid "The CAPTCHA wasn't entered correctly. Try it again."
+msgstr "Le CAPTCHA n'est pas été saisie correctement. Veuillez réessayer."
+
+#: index.php:46
+msgid "You must enter a public and a private key before activating this plugin."
+msgstr "Vous devez saisir une clé publique et une clé privée avant de pouvoir activer cette extension."
+
+#: index.php:66
+msgid "Configuration successfully saved"
+msgstr "Configuration sauvegardée avec succès"
+
+#: index.php:88
+msgid "Plugin activation"
+msgstr "Activation de l'extension"
+
+#: index.php:89
+msgid "Public Key:"
+msgstr "Clé publique"
+
+#: index.php:92
+msgid "Private Key:"
+msgstr "Clé privée"
+
+#: index.php:95
+msgid "To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don't have them, go to <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> and create them."
+msgstr "Pour activer cette extension il faut saisir les clés reCAPTCHA publiques et privés. Si vous n'en avez pas, il faut vous rendre sur <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> et en créer."
+
+#: index.php:98
+msgid "Enable extension"
+msgstr "Activer l'extension"
+
+#: index.php:102
+msgid "Plugins path:"
+msgstr "Chemin vers les extensions:"
+
+#: index.php:104
+msgid "Enter plugins URL path (default: /plugins). If you installed Dotclear in a subdirectory enter something like /dotclear/plugins without trailing slash."
+msgstr "Entrer l'URL vers les extensions (par défaut: /plugins). Si vous avez installer Dotclear dans un sous répertoire, il faut saisir un chemin du style /dotclear/plugins, sans / à la fin."
+
+#: index.php:110
+msgid "save"
+msgstr "Sauvegarder"
+
+
