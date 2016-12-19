@@ -37,7 +37,6 @@ class recaptchaBhv
     echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js" /></script>
 <script type="text/javascript">
   var RecaptchaOptions = {
-    theme : \'' . $core->blog->settings->recaptcha->recaptcha_theme . '\',
     lang : \'' . $core->blog->settings->recaptcha->recaptcha_lang . '\'
   };
 </script>
@@ -84,6 +83,8 @@ class recaptchaBhv
 	  echo '				</p>';
 	  echo '          <div class="g-recaptcha" data-sitekey="'
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
+	     . '" data-theme="'
+	     . $core->blog->settings->recaptcha->recaptcha_theme
 	     . '"></div>' . "\n";
 	}
 	else
@@ -102,6 +103,8 @@ class recaptchaBhv
       {
 	echo '        <div class="g-recaptcha" data-sitekey="'
 	   . $core->blog->settings->recaptcha->recaptcha_public_key
+	   . '" data-theme="'
+	   . $core->blog->settings->recaptcha->recaptcha_theme
 	   . '"></div>' . "\n";
       }
       else
