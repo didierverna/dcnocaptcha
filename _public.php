@@ -71,7 +71,7 @@ class recaptchaBhv
 	  echo '				<p class="error" id="pr">'.__('The CAPTCHA wasn\'t entered correctly. Try it again.').'</p>';
 	  echo '          <div class="g-recaptcha" data-sitekey="'
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
-	     . '"></div>\n';
+	     . '"></div>' . "\n";
 	}
 	else
 	{
@@ -89,7 +89,7 @@ class recaptchaBhv
       {
 	echo '        <div class="g-recaptcha" data-sitekey="'
 	   . $core->blog->settings->recaptcha->recaptcha_public_key
-	   . '"></div>\n';
+	   . '"></div>' . "\n";
       }
       else
       {
