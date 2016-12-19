@@ -39,8 +39,8 @@ msgid "clean"
 msgstr "clair"
 
 #: _public.php:66
-msgid "The CAPTCHA wasn't entered correctly. Try it again."
-msgstr "Le CAPTCHA n'est pas été saisie correctement. Veuillez réessayer."
+msgid "The CAPTCHA wasn't entered correctly."
+msgstr "Le CAPTCHA n'a pas été saisi correctement."
 
 #: index.php:46
 msgid "You must enter a public and a private key before activating this plugin."
@@ -81,5 +81,3 @@ msgstr "Entrer l'URL vers les extensions (par défaut: /plugins). Si vous avez i
 #: index.php:110
 msgid "save"
 msgstr "Sauvegarder"
-
-

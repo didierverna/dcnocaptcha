@@ -1,8 +1,8 @@
 <?php
-// Language: Français 
+// Language: Français
 // Module: recaptcha - 0.1
-// Date: 2011-12-04 18:46:41 
-// Translated with dcTranslater - 1.5 
+// Date: 2011-12-04 18:46:41
+// Translated with dcTranslater - 1.5
 
 #_admin.php:55
 $GLOBALS['__l10n']['Enable reCAPTCHA for this blog'] = 'Activer reCAPTCHA pour ce blog';
@@ -23,7 +23,7 @@ $GLOBALS['__l10n']['blackglass'] = 'noire';
 $GLOBALS['__l10n']['clean'] = 'clair';
 
 #_public.php:66
-$GLOBALS['__l10n']['The CAPTCHA wasn\'t entered correctly. Try it again.'] = 'Le CAPTCHA n\'est pas été saisie correctement. Veuillez réessayer.';
+$GLOBALS['__l10n']['The CAPTCHA wasn\'t entered correctly.'] = 'Le CAPTCHA n\'a pas été saisi correctement.';
 
 #index.php:46
 $GLOBALS['__l10n']['You must enter a public and a private key before activating this plugin.'] = 'Vous devez saisir une clé publique et une clé privée avant de pouvoir activer cette extension.';

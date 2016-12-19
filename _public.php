@@ -76,7 +76,7 @@ class recaptchaBhv
 	  foreach ($response->getErrorCodes () as $code)
 	  {
 	    if ($code == "missing-input-response")
-	      echo __('The CAPTCHA wasn\'t entered correctly. Try it again.');
+	      echo __('The CAPTCHA wasn\'t entered correctly.');
 	    else
 	      echo '<tt>', $code ,'</tt> ';
 	    echo "<br />";
@@ -132,7 +132,7 @@ class recaptchaBhv
 
     if (!$response->isSuccess ())
     {
-      throw new Exception ( __('The CAPTCHA wasn\'t entered correctly. Try it again.'));
+      throw new Exception ( __('The CAPTCHA wasn\'t entered correctly.'));
     }
   }
 }
