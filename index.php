@@ -26,7 +26,6 @@ $s = $core->blog->settings->recaptcha;
 $recaptcha_active = (boolean) $s->recaptcha_active;
 $recaptcha_public_key = (string) $s->recaptcha_public_key;
 $recaptcha_private_key = (string) $s->recaptcha_private_key;
-$recaptcha_plugins_path = (string) $s->recaptcha_plugins_path;
 
 # Save settings
 if ($action == 'savesetting')
@@ -36,7 +35,6 @@ if ($action == 'savesetting')
     $recaptcha_public_key = $_POST['recaptcha_public_key'];
     $recaptcha_private_key = $_POST['recaptcha_private_key'];
     $recaptcha_active = !empty($_POST['recaptcha_active']);
-    $recaptcha_plugins_path = $_POST['recaptcha_plugins_path'];
 
     if ((empty($recaptcha_public_key) ||
 	 empty($recaptcha_private_key)) &&
@@ -49,7 +47,6 @@ if ($action == 'savesetting')
     $s->put('recaptcha_active',$recaptcha_active);
     $s->put('recaptcha_public_key',$recaptcha_public_key);
     $s->put('recaptcha_private_key',$recaptcha_private_key);
-    $s->put('recaptcha_plugins_path',$recaptcha_plugins_path);
 
     $core->blog->triggerBlog();
 
@@ -78,10 +75,6 @@ if (isset($msg_list[$msg]))
   echo sprintf('<p class="message">%s</p>',$msg_list[$msg]);
 }
 
-if (empty($recaptcha_plugins_path)) {
-  $recaptcha_plugins_path = '/plugins';
-}
-
 echo
 '<form method="post" action="'.$p_url.'" id="setting-form">
 
@@ -97,13 +90,6 @@ form::field(array('recaptcha_public_key'),50,255,$recaptcha_public_key).'
 	    form::checkbox(array('recaptcha_active'),'1',$recaptcha_active).
 		  __('Enable extension').'</label></p>
 </fieldset>
-
-<fieldset id="plugin"><legend>'. __('Parameters').'</legend>
-<p class="field"><label>'.__('Plugins path:').
-		  form::field(array('recaptcha_plugins_path'),30,255,$recaptcha_plugins_path).'
-<p class="form-note">'.__('Enter plugins URL path (default: /plugins). If you installed Dotclear in a subdirectory enter something like /dotclear/plugins without trailing slash.').'</p>
-</label></p>
-</fieldset>';
 
 echo '
 <div class="clear">
