@@ -33,8 +33,9 @@ class recaptchaBhv
       return;
     }
 
-    // Add reCAPTCHA options and CSS pos
-    echo '<script type="text/javascript">
+    // Add reCAPTCHA API, options and CSS pos
+    echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js" /></script>
+<script type="text/javascript">
   var RecaptchaOptions = {
     theme : \'' . $core->blog->settings->recaptcha->recaptcha_theme . '\',
     lang : \'' . $core->blog->settings->recaptcha->recaptcha_lang . '\'
@@ -47,63 +48,76 @@ class recaptchaBhv
 </style>';
   }
 
-  public static function publicCommentFormAfterContent($core,$_ctx)
+  public static function publicCommentFormAfterContent ($core, $_ctx)
   {
-    if ((!$core->blog->settings->recaptcha->recaptcha_active  ||
-	 !$core->blog->settings->recaptcha->recaptcha_blog_enable) &&
-	empty($_POST['preview']))
+    if ((!$core->blog->settings->recaptcha->recaptcha_active
+      || !$core->blog->settings->recaptcha->recaptcha_blog_enable)
+	&& empty ($_POST['preview']))
     {
       return;
     }
 
     if ($_POST['preview'])
     {
-      if ($_POST['recaptcha_challenge_field'])
+      if (isset ($_POST['g-recaptcha-response']))
       {
-	$resp = recaptcha_check_answer ($core->blog->settings->recaptcha->recaptcha_private_key,
-					$_SERVER["REMOTE_ADDR"],
-					$_POST["recaptcha_challenge_field"],
-					$_POST["recaptcha_response_field"]);
-	if (!$resp->is_valid) {
+	$recaptcha = new \ReCaptcha\ReCaptcha
+	  ($core->blog->settings->recaptcha->recaptcha_private_key);
+	$response = $recaptcha->verify ($_POST['g-recaptcha-response'],
+					$_SERVER["REMOTE_ADDR"]);
+
+	if (! $response->isSuccess ())
+	{
 	  echo '				<p class="error" id="pr">'.__('The CAPTCHA wasn\'t entered correctly. Try it again.').'</p>';
-	  echo '        <div id="recaptcha_div">'.recaptcha_get_html($core->blog->settings->recaptcha->recaptcha_public_key).'
-		</div>';
-	} else {
+	  echo '          <div class="g-recaptcha" data-sitekey="'
+	     . $core->blog->settings->recaptcha->recaptcha_public_key
+	     . '"></div>\n';
+	}
+	else
+	{
 	  echo '				<input type="hidden" name="recaptcha" value="1" />';
 	}
-      } else {
+      }
+      else
+      {
 	echo '				<input type="hidden" name="recaptcha" value="1" />';
       }
-    } else {
-      if (empty($_POST['recaptcha']))
+    }
+    else
+    {
+      if (empty ($_POST['recaptcha']))
       {
-	echo '        <div id="recaptcha_div">'.recaptcha_get_html($core->blog->settings->recaptcha->recaptcha_public_key).'
-	</div>';
-      } else {
+	echo '        <div class="g-recaptcha" data-sitekey="'
+	   . $core->blog->settings->recaptcha->recaptcha_public_key
+	   . '"></div>\n';
+      }
+      else
+      {
 	echo '				<input type="hidden" name="recaptcha" value="1" />';
       }
     }
   }
 
-  public static function publicBeforeCommentCreate($cur)
+  public static function publicBeforeCommentCreate ($cur)
   {
     global $core;
 
-    if (!$core->blog->settings->recaptcha->recaptcha_active ||
-	!$core->blog->settings->recaptcha->recaptcha_blog_enable ||
-	$_POST['recaptcha'])
+    if (!$core->blog->settings->recaptcha->recaptcha_active
+	|| !$core->blog->settings->recaptcha->recaptcha_blog_enable
+	|| $_POST['recaptcha'])
     {
       return;
     }
 
-    $resp = recaptcha_check_answer ($core->blog->settings->recaptcha->recaptcha_private_key,
-				    $_SERVER["REMOTE_ADDR"],
-				    $_POST["recaptcha_challenge_field"],
-				    $_POST["recaptcha_response_field"]);
-    if (!$resp->is_valid) {
-      throw new Exception(__('The CAPTCHA wasn\'t entered correctly. Try it again.'));
+    $recaptcha = new \ReCaptcha\ReCaptcha
+      ($core->blog->settings->recaptcha->recaptcha_private_key);
+    $response = $recaptcha->verify ($_POST['g-recaptcha-response'],
+				    $_SERVER["REMOTE_ADDR"]);
+
+    if (!$response->isSuccess ())
+    {
+      throw new Exception ( __('The CAPTCHA wasn\'t entered correctly. Try it again.'));
     }
   }
-
 }
 ?>
