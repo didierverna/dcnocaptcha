@@ -16,8 +16,8 @@ $this->registerModule(
   /* Name */			"reCAPTCHA",
   /* Description*/		"Add reCAPTCHA on comment forms",
   /* Author */			"Tof",
-  /* Version */			'0.1',
+  /* Version */			'0.2-b1',
   /* Permissions */		'admin'
 );
-/* date */		#20110825
+/* date */		#20161219
 ?>
