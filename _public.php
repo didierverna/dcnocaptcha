@@ -68,7 +68,17 @@ class recaptchaBhv
 
 	if (! $response->isSuccess ())
 	{
-	  echo '				<p class="error" id="pr">'.__('The CAPTCHA wasn\'t entered correctly. Try it again.').'</p>';
+	  echo '				<p class="error" id="pr">'
+	     . "\n";
+	  foreach ($response->getErrorCodes () as $code)
+	  {
+	    if ($code == "missing-input-response")
+	      echo __('The CAPTCHA wasn\'t entered correctly. Try it again.');
+	    else
+	      echo '<tt>', $code ,'</tt> ';
+	    echo "<br />";
+	  }
+	  echo '				</p>';
 	  echo '          <div class="g-recaptcha" data-sitekey="'
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
 	     . '"></div>' . "\n";
