@@ -62,7 +62,10 @@ class recaptchaBhv
       if (isset ($_POST['g-recaptcha-response']))
       {
 	$recaptcha = new \ReCaptcha\ReCaptcha
-	  ($core->blog->settings->recaptcha->recaptcha_private_key);
+	($core->blog->settings->recaptcha->recaptcha_private_key,
+	 // #### FIXME: because OVH doesn't support allow_url_fopen. Should
+	 // probably be a plugin option.
+	 new \ReCaptcha\RequestMethod\CurlPost ());
 	$response = $recaptcha->verify ($_POST['g-recaptcha-response'],
 					$_SERVER["REMOTE_ADDR"]);
 
@@ -120,7 +123,10 @@ class recaptchaBhv
     }
 
     $recaptcha = new \ReCaptcha\ReCaptcha
-      ($core->blog->settings->recaptcha->recaptcha_private_key);
+    ($core->blog->settings->recaptcha->recaptcha_private_key,
+     // #### FIXME: because OVH doesn't support allow_url_fopen. Should
+     // probably be a plugin option.
+     new \ReCaptcha\RequestMethod\CurlPost ());
     $response = $recaptcha->verify ($_POST['g-recaptcha-response'],
 				    $_SERVER["REMOTE_ADDR"]);
 
