@@ -29,17 +29,9 @@ class recaptchaBhv
   public static function publicheadContent($core)
   {
     if (!$core->blog->settings->recaptcha->recaptcha_active)
-    {
       return;
-    }
 
-    // Add reCAPTCHA API, options and CSS pos
-    echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js" /></script>
-<style type="text/css">
-#recaptcha_area {
-  margin: 0 auto !important;
-}
-</style>';
+    echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js" /></script>';
   }
 
   public static function publicCommentFormAfterContent ($core, $_ctx)
