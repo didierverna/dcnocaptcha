@@ -85,6 +85,8 @@ class recaptchaBhv
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
 	     . '" data-theme="'
 	     . $core->blog->settings->recaptcha->recaptcha_theme
+	     . '" data-size="'
+	     . $core->blog->settings->recaptcha->recaptcha_size
 	     . '"></div>' . "\n";
 	}
 	else
@@ -105,6 +107,8 @@ class recaptchaBhv
 	   . $core->blog->settings->recaptcha->recaptcha_public_key
 	   . '" data-theme="'
 	   . $core->blog->settings->recaptcha->recaptcha_theme
+	   . '" data-size="'
+	   . $core->blog->settings->recaptcha->recaptcha_size
 	   . '"></div>' . "\n";
       }
       else

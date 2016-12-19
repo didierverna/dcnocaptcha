@@ -35,7 +35,8 @@ class recaptchaAdmBhv
   public static function preferencesForm ($core)
   {
     $settings = $core->blog->settings->recaptcha;
-    $theme = $settings->get ('recaptcha_theme');
+    $theme    = $settings->get ('recaptcha_theme');
+    $size     = $settings->get ('recaptcha_size');
     $lang_values = array (__('English')    => 'en',
 			  __('Dutch')      => 'nl',
 			  __('French')     => 'fr',
@@ -61,7 +62,7 @@ class recaptchaAdmBhv
        . form::radio (array ('recaptcha_theme'),
 		      'light',
 		      ($theme == 'light' ? true : false))
-      . "Light\n"
+       . "Light\n"
        . form::radio (array ('recaptcha_theme'),
 		      'dark',
 		      ($theme == 'dark' ? true : false))
@@ -69,10 +70,22 @@ class recaptchaAdmBhv
       </label>
     </p>
     <p>
+      <label class=\"classic\">" . __('Size:') . "\n"
+	. form::radio (array ('recaptcha_size'),
+		       'normal',
+		       ($size == 'normal' ? true : false))
+	. "Normal\n"
+	. form::radio (array ('recaptcha_size'),
+		       'compact',
+		       ($size == 'compact' ? true : false))
+	. "Compact
+      </label>
+    </p>
+    <p>
       <label class=\"classic\">" . __('Language:') . '&nbsp;'
-       . form::combo (array ('recaptcha_lang'),
-		      $lang_values,
-		      $settings->get('recaptcha_lang'))
+	. form::combo (array ('recaptcha_lang'),
+		       $lang_values,
+		       $settings->get('recaptcha_lang'))
 	. "</label>
     </p>
   </div>
@@ -83,12 +96,19 @@ class recaptchaAdmBhv
   {
     $settings->recaptcha->put ('recaptcha_blog_enable',
 			       $_POST['recaptcha_blog_enable']);
-    if ($_POST['recaptcha_blog_enable'] == 1
-	&& empty ($_POST['recaptcha_theme']))
-    {
-      $_POST['recaptcha_theme'] = 'light';
-    }
+    if ($_POST['recaptcha_blog_enable'] == 1)
+      {
+	if (empty ($_POST['recaptcha_theme']))
+	{
+	  $_POST['recaptcha_theme'] = 'light';
+	}
+	if (empty ($_POST['recaptcha_size']))
+	{
+	  $_POST['recaptcha_size'] = 'normal';
+	}
+      }
     $settings->recaptcha->put ('recaptcha_theme', $_POST['recaptcha_theme']);
+    $settings->recaptcha->put ('recaptcha_size', $_POST['recaptcha_size']);
     $settings->recaptcha->put ('recaptcha_lang',  $_POST['recaptcha_lang']);
   }
 }
