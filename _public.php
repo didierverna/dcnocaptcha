@@ -35,11 +35,6 @@ class recaptchaBhv
 
     // Add reCAPTCHA API, options and CSS pos
     echo '<script type="text/javascript" src="https://www.google.com/recaptcha/api.js" /></script>
-<script type="text/javascript">
-  var RecaptchaOptions = {
-    lang : \'' . $core->blog->settings->recaptcha->recaptcha_lang . '\'
-  };
-</script>
 <style type="text/css">
 #recaptcha_area {
   margin: 0 auto !important;

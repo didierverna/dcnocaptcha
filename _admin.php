@@ -37,14 +37,6 @@ class recaptchaAdmBhv
     $settings = $core->blog->settings->recaptcha;
     $theme    = $settings->get ('recaptcha_theme');
     $size     = $settings->get ('recaptcha_size');
-    $lang_values = array (__('English')    => 'en',
-			  __('Dutch')      => 'nl',
-			  __('French')     => 'fr',
-			  __('German')     => 'de',
-			  __('Portuguese') => 'pt',
-			  __('Russian')    => 'ru',
-			  __('Spanish')    => 'es',
-			  __('Turkish')    => 'tr');
 
     echo "<fieldset>
   <legend>" . __('reCAPTCHA') . "</legend>
@@ -81,13 +73,6 @@ class recaptchaAdmBhv
 	. "Compact
       </label>
     </p>
-    <p>
-      <label class=\"classic\">" . __('Language:') . '&nbsp;'
-	. form::combo (array ('recaptcha_lang'),
-		       $lang_values,
-		       $settings->get('recaptcha_lang'))
-	. "</label>
-    </p>
   </div>
 </fieldset>";
   }
@@ -109,7 +94,6 @@ class recaptchaAdmBhv
       }
     $settings->recaptcha->put ('recaptcha_theme', $_POST['recaptcha_theme']);
     $settings->recaptcha->put ('recaptcha_size', $_POST['recaptcha_size']);
-    $settings->recaptcha->put ('recaptcha_lang',  $_POST['recaptcha_lang']);
   }
 }
 
