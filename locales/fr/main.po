@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-20 11:37+0100\n"
-"PO-Revision-Date: 2016-12-20 11:45+0100\n"
+"POT-Creation-Date: 2016-12-20 11:54+0100\n"
+"PO-Revision-Date: 2016-12-20 11:55+0100\n"
 "Last-Translator: Didier Verna <didier@didierverna.net>\n"
 "Language-Team: French <didier@didierverna.net>\n"
 "Language: French\n"
@@ -17,50 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: _admin.php:25 _admin.php:42 index.php:68 index.php:71
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
-#: _admin.php:49
 msgid "Enable reCAPTCHA for this blog"
 msgstr "Activer reCAPTCHA sur ce blog"
 
-#: _admin.php:53
 msgid "Theme:"
 msgstr "Thème:"
 
-#: _admin.php:65
+msgid "Light"
+msgstr "Clair"
+
+msgid "Dark"
+msgstr "Sombre"
+
 msgid "Size:"
 msgstr "Taille:"
 
-#: _public.php:65 _public.php:129
+msgid "Normal"
+msgstr "Normale"
+
+msgid "Compact"
+msgstr "Compacte"
+
 msgid "The CAPTCHA wasn't entered correctly."
 msgstr "Le CAPTCHA n'a pas été saisi correctement"
 
-#: index.php:44
 msgid "You must enter a public and a private key before activating this plugin."
 msgstr "Vous devez fournir une clé publique et une clé privée avant d'activer ce plugin."
 
-#: index.php:63
 msgid "Configuration successfully saved"
 msgstr "Configuration sauvegardée avec succès"
 
-#: index.php:81
 msgid "Plugin activation"
 msgstr "Activation du plugin"
 
-#: index.php:82
 msgid "Public Key:"
 msgstr "Clé publique:"
 
-#: index.php:85
 msgid "Private Key:"
 msgstr "Clé privée:"
 
-#: index.php:88
 msgid "To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don't have them, go to <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> and create them."
 msgstr "Pour activer ce plugin, vous devez renseigner vos clés reCAPTCHA publiques et privées. Si vous n'en avez pas, rendez-vous sur <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> pour les créer."
 
-#: index.php:91
 msgid "Enable extension"
 msgstr "Activer l'extension"

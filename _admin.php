@@ -54,11 +54,11 @@ class recaptchaAdmBhv
        . form::radio (array ('recaptcha_theme'),
 		      'light',
 		      ($theme == 'light' ? true : false))
-       . "Light\n"
+       . __("Light") . "\n"
        . form::radio (array ('recaptcha_theme'),
 		      'dark',
 		      ($theme == 'dark' ? true : false))
-       . "Dark
+       . __("Dark") . "
       </label>
     </p>
     <p>
@@ -66,11 +66,11 @@ class recaptchaAdmBhv
 	. form::radio (array ('recaptcha_size'),
 		       'normal',
 		       ($size == 'normal' ? true : false))
-	. "Normal\n"
+	. __("Normal") . "\n"
 	. form::radio (array ('recaptcha_size'),
 		       'compact',
 		       ($size == 'compact' ? true : false))
-	. "Compact
+	. __("Compact") . "
       </label>
     </p>
   </div>

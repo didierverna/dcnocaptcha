@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-20 11:37+0100\n"
+"POT-Creation-Date: 2016-12-20 11:54+0100\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,8 +29,24 @@ msgstr ""
 msgid "Theme:"
 msgstr ""
 
+#: _admin.php:57
+msgid "Light"
+msgstr ""
+
+#: _admin.php:61
+msgid "Dark"
+msgstr ""
+
 #: _admin.php:65
 msgid "Size:"
+msgstr ""
+
+#: _admin.php:69
+msgid "Normal"
+msgstr ""
+
+#: _admin.php:73
+msgid "Compact"
 msgstr ""
 
 #: _public.php:65 _public.php:129
