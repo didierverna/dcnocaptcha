@@ -1,23 +1,32 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of cgAddThis, a plugin for Dotclear 2.
-#
-# Copyright (c) 2011 Tof, reCAPTCHA and contributors
-# xtophe@free.fr
-#
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-# -- END LICENSE BLOCK ------------------------------------
 
-if (!defined('DC_RC_PATH')){return;}
+## Copyright (C) 2016 Didier Verna
 
-$this->registerModule(
-  /* Name */			"reCAPTCHA",
-  /* Description*/		"Add reCAPTCHA on comment forms",
-  /* Author */			"Tof",
-  /* Version */			'0.2-b7',
-  /* Permissions */		'admin'
-);
-/* date */		#20161219
+## Author:     Didier Verna <didier@didierverna.net>
+
+## This file is part of noCAPTCHA.
+
+## noCAPTCHA is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License version 3,
+## as published by the Free Software Foundation.
+
+## noCAPTCHA is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+
+## You should have received a copy of the GNU General Public License
+## along with this program; if not, write to the Free Software
+## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+if (! defined ('DC_RC_PATH'))
+  return;
+
+$this->registerModule ("reCAPTCHA",
+		       "Protect the comment submission form with a noCAPTCHA",
+		       "Didier Verna",
+		       '1.0-b1',
+		       array ('type'        => 'plugin',
+			      'permissions' => 'admin'));
+
 ?>
