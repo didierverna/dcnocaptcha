@@ -2,7 +2,7 @@
 
 ## Copyright (C) 2016 Didier Verna
 
-## Author:     Didier Verna <didier@didierverna.net>
+## Author: Didier Verna <didier@didierverna.net>
 
 ## This file is part of noCAPTCHA.
 
