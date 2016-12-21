@@ -53,9 +53,7 @@ class recaptchaBhv
     if ((!$core->blog->settings->recaptcha->recaptcha_active
       || !$core->blog->settings->recaptcha->recaptcha_blog_enable)
 	&& empty ($_POST['preview']))
-    {
-      return;
-    }
+    return;
 
     if ($_POST['preview'])
     {
@@ -67,22 +65,21 @@ class recaptchaBhv
 	 // probably be a plugin option.
 	 new \ReCaptcha\RequestMethod\CurlPost ());
 	$response = $recaptcha->verify ($_POST['g-recaptcha-response'],
-					$_SERVER["REMOTE_ADDR"]);
+					$_SERVER['REMOTE_ADDR']);
 
 	if (! $response->isSuccess ())
 	{
-	  echo '				<p class="error" id="pr">'
-	     . "\n";
+	  echo '<p class="error" id="pr">' . "\n";
 	  foreach ($response->getErrorCodes () as $code)
 	  {
-	    if ($code == "missing-input-response")
+	    if ($code == 'missing-input-response')
 	      echo __('The CAPTCHA wasn\'t entered correctly.');
 	    else
-	      echo '<tt>', $code ,'</tt> ';
-	    echo "<br />";
+	      echo "<tt>$code</tt>";
+	    echo "<br />\n";
 	  }
-	  echo '				</p>';
-	  echo '          <div class="g-recaptcha" data-sitekey="'
+	  echo "</p>\n";
+	  echo '<div class="g-recaptcha" data-sitekey="'
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
 	     . '" data-theme="'
 	     . $core->blog->settings->recaptcha->recaptcha_theme
@@ -92,19 +89,19 @@ class recaptchaBhv
 	}
 	else
 	{
-	  echo '				<input type="hidden" name="recaptcha" value="1" />';
+	  echo '<input type="hidden" name="recaptcha" value="1" />';
 	}
       }
       else
       {
-	echo '				<input type="hidden" name="recaptcha" value="1" />';
+	echo '<input type="hidden" name="recaptcha" value="1" />';
       }
     }
     else
     {
       if (empty ($_POST['recaptcha']))
       {
-	echo '        <div class="g-recaptcha" data-sitekey="'
+	echo '<div class="g-recaptcha" data-sitekey="'
 	   . $core->blog->settings->recaptcha->recaptcha_public_key
 	   . '" data-theme="'
 	   . $core->blog->settings->recaptcha->recaptcha_theme
@@ -114,7 +111,7 @@ class recaptchaBhv
       }
       else
       {
-	echo '				<input type="hidden" name="recaptcha" value="1" />';
+	echo '<input type="hidden" name="recaptcha" value="1" />';
       }
     }
   }
@@ -136,9 +133,9 @@ class recaptchaBhv
      // probably be a plugin option.
      new \ReCaptcha\RequestMethod\CurlPost ());
     $response = $recaptcha->verify ($_POST['g-recaptcha-response'],
-				    $_SERVER["REMOTE_ADDR"]);
+				    $_SERVER['REMOTE_ADDR']);
 
-    if (!$response->isSuccess ())
+    if (! $response->isSuccess ())
     {
       throw new Exception (__('The CAPTCHA wasn\'t entered correctly.'));
     }
