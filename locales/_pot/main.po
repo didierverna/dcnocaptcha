@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-20 11:54+0100\n"
+"POT-Creation-Date: 2016-12-21 18:03+0100\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: _admin.php:25 _admin.php:42 index.php:68 index.php:71
+#: _admin.php:25 _admin.php:42 _define.php:26 index.php:68 index.php:71
 msgid "reCAPTCHA"
 msgstr ""
 
@@ -47,6 +47,10 @@ msgstr ""
 
 #: _admin.php:73
 msgid "Compact"
+msgstr ""
+
+#: _define.php:27
+msgid "Protect the comment submission form with a noCAPTCHA"
 msgstr ""
 
 #: _public.php:65 _public.php:129
