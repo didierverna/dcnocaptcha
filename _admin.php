@@ -32,7 +32,7 @@ $core->addBehavior ('adminBlogPreferencesForm',
 $core->addBehavior ('adminBeforeBlogSettingsUpdate',
 		    array ('recaptchaAdmBhv', 'updateSettings'));
 
-$_menu['Plugins']->addItem (__('reCAPTCHA'),
+$_menu['Plugins']->addItem ('reCAPTCHA',
 			    'plugin.php?p=recaptcha',
 			    'index.php?pf=recaptcha/icon.png',
 			    preg_match ('/plugin.php\?p=recaptcha(&.*)?$/',
@@ -48,43 +48,42 @@ class recaptchaAdmBhv
     $theme    = $settings->get ('recaptcha_theme');
     $size     = $settings->get ('recaptcha_size');
 
-    echo "<fieldset>
-  <legend>" . __('reCAPTCHA') . "</legend>
-  <div class=\"col\">
+    echo '<fieldset>
+  <legend>reCAPTCHA</legend>
+  <div class="col">
     <p>
-      <label class=\"classic\">"
+      <label class="classic">'
        . form::checkbox ('recaptcha_blog_enable',
 			 1,
 			 $settings->get ('recaptcha_blog_enable'))
        . __('Enable reCAPTCHA for this blog')
-       . "</label>
+       . '      </label>
     </p>
     <p>
-      <label class=\"classic\">" . __('Theme:') . "\n"
+      <label class="classic">' . __('Theme:') . ' '
        . form::radio (array ('recaptcha_theme'),
 		      'light',
 		      ($theme == 'light' ? true : false))
-       . __("Light") . "\n"
+       . __('Light') . ' '
        . form::radio (array ('recaptcha_theme'),
 		      'dark',
 		      ($theme == 'dark' ? true : false))
-       . __("Dark") . "
-      </label>
+       . __('Dark')
+       . '      </label>
     </p>
     <p>
-      <label class=\"classic\">" . __('Size:') . "\n"
+      <label class="classic">' . __('Size:') . ' '
 	. form::radio (array ('recaptcha_size'),
 		       'normal',
 		       ($size == 'normal' ? true : false))
-	. __("Normal") . "\n"
+	. __('Normal') . ' '
 	. form::radio (array ('recaptcha_size'),
 		       'compact',
 		       ($size == 'compact' ? true : false))
-	. __("Compact") . "
-      </label>
+	. __('Compact') . '      </label>
     </p>
   </div>
-</fieldset>";
+</fieldset>';
   }
 
   public static function updateSettings ($settings)
