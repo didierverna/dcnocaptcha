@@ -23,9 +23,9 @@ if (! defined ('DC_RC_PATH'))
   return;
 
 $this->registerModule
-(__("reCAPTCHA"),
- __("Protect the comment submission form with a noCAPTCHA"),
- "Didier Verna",
+('reCAPTCHA',
+ __('Protect the comment submission form with a noCAPTCHA'),
+ 'Didier Verna',
  '1.0-b1',
  array ('type'        => 'plugin',
 	'permissions' => 'admin'));
