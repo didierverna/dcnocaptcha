@@ -102,14 +102,12 @@ class recaptchaAdmBhv
     if ($_POST['recaptcha_blog_enable'] == 1)
       {
 	if (empty ($_POST['recaptcha_theme']))
-	{
 	  $_POST['recaptcha_theme'] = 'light';
-	}
+
 	if (empty ($_POST['recaptcha_size']))
-	{
 	  $_POST['recaptcha_size'] = 'normal';
-	}
       }
+
     $settings->recaptcha->put ('recaptcha_theme', $_POST['recaptcha_theme']);
     $settings->recaptcha->put ('recaptcha_size', $_POST['recaptcha_size']);
   }
