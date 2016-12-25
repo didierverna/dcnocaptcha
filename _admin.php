@@ -49,7 +49,7 @@ class recaptchaAdmBhv
     $size     = $settings->get ('recaptcha_size');
 
     echo '<fieldset>
-  <legend>reCAPTCHA</legend>
+  <h4>reCAPTCHA</h4>
   <div class="col">
     <p>
       <label class="classic">'

@@ -78,7 +78,7 @@ if (isset ($msg_list[$msg]))
 
 echo '<form method="post" action="' . $p_url . '" id="setting-form">
 
-<fieldset id="plugin"><legend>' . __('Plugin activation') . '</legend>
+<fieldset id="plugin"><h4>' . __('Plugin activation') . '</h4>
 <p class="field"><label>' . __('Public Key:')
   . form::field (array ('recaptcha_public_key'), 50, 255,
 		  $recaptcha_public_key)
