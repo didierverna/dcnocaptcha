@@ -43,9 +43,9 @@ class recaptchaBhv
     if (!$core->blog->settings->recaptcha->recaptcha_active)
       return;
 
-    echo '<script type="text/javascript"
-	src="https://www.google.com/recaptcha/api.js">
-</script>';
+    echo '<script type="text/javascript" '
+       . 'src="https://www.google.com/recaptcha/api.js">'
+       . '</script>';
   }
 
   public static function publicCommentFormAfterContent ($core, $_ctx)
@@ -69,23 +69,23 @@ class recaptchaBhv
 
 	if (! $response->isSuccess ())
 	{
-	  echo '<p class="error" id="pr">' . "\n";
+	  echo '<p class="error" id="pr">';
 	  foreach ($response->getErrorCodes () as $code)
 	  {
 	    if ($code == 'missing-input-response')
 	      echo __('The CAPTCHA wasn\'t entered correctly.');
 	    else
 	      echo "<tt>$code</tt>";
-	    echo "<br />\n";
+	    echo '<br />';
 	  }
-	  echo "</p>\n";
+	  echo '</p>';
 	  echo '<div class="g-recaptcha" data-sitekey="'
 	     . $core->blog->settings->recaptcha->recaptcha_public_key
 	     . '" data-theme="'
 	     . $core->blog->settings->recaptcha->recaptcha_theme
 	     . '" data-size="'
 	     . $core->blog->settings->recaptcha->recaptcha_size
-	     . '"></div>' . "\n";
+	     . '"></div>';
 	}
 	else
 	{
