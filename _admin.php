@@ -48,9 +48,8 @@ class recaptchaAdmBhv
     $theme    = $settings->get ('recaptcha_theme');
     $size     = $settings->get ('recaptcha_size');
 
-    echo '<fieldset>
+    echo '<div class="fieldset">
   <h4>reCAPTCHA</h4>
-  <div class="col">
     <p>
       <label class="classic">'
        . form::checkbox ('recaptcha_blog_enable',
@@ -82,8 +81,7 @@ class recaptchaAdmBhv
 		       ($size == 'compact' ? true : false))
 	. __('Compact') . '      </label>
     </p>
-  </div>
-</fieldset>';
+</div>';
   }
 
   public static function updateSettings ($settings)
