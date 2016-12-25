@@ -48,40 +48,51 @@ class recaptchaAdmBhv
     $theme    = $settings->get ('recaptcha_theme');
     $size     = $settings->get ('recaptcha_size');
 
-    echo '<div class="fieldset">
+?>
+<div class="fieldset">
   <h4>reCAPTCHA</h4>
-    <p>
-      <label class="classic">'
-       . form::checkbox ('recaptcha_blog_enable',
-			 1,
-			 $settings->get ('recaptcha_blog_enable'))
-       . __('Enable reCAPTCHA for this blog')
-       . '      </label>
-    </p>
-    <p>
-      <label class="classic">' . __('Theme:') . ' '
-       . form::radio (array ('recaptcha_theme'),
-		      'light',
-		      ($theme == 'light' ? true : false))
-       . __('Light') . ' '
-       . form::radio (array ('recaptcha_theme'),
-		      'dark',
-		      ($theme == 'dark' ? true : false))
-       . __('Dark')
-       . '      </label>
-    </p>
-    <p>
-      <label class="classic">' . __('Size:') . ' '
-	. form::radio (array ('recaptcha_size'),
-		       'normal',
-		       ($size == 'normal' ? true : false))
-	. __('Normal') . ' '
-	. form::radio (array ('recaptcha_size'),
-		       'compact',
-		       ($size == 'compact' ? true : false))
-	. __('Compact') . '      </label>
-    </p>
-</div>';
+  <p>
+    <label class="classic">
+    <?
+       echo form::checkbox ('recaptcha_blog_enable',
+			    1,
+			    $settings->get ('recaptcha_blog_enable'))
+	  . __('Enable reCAPTCHA for this blog');
+    ?>
+    </label>
+  </p>
+  <p>
+    <label class="classic">
+    <?
+       echo __('Theme:') . ' '
+	  . form::radio (array ('recaptcha_theme'),
+			 'light',
+			 ($theme == 'light' ? true : false))
+	  . __('Light') . ' '
+	  . form::radio (array ('recaptcha_theme'),
+			 'dark',
+			 ($theme == 'dark' ? true : false))
+	  . __('Dark');
+    ?>
+    </label>
+  </p>
+  <p>
+    <label class="classic">
+    <?
+       echo __('Size:') . ' '
+	  . form::radio (array ('recaptcha_size'),
+			 'normal',
+			 ($size == 'normal' ? true : false))
+	  . __('Normal') . ' '
+	  . form::radio (array ('recaptcha_size'),
+			 'compact',
+			 ($size == 'compact' ? true : false))
+	  . __('Compact');
+    ?>
+    </label>
+  </p>
+</div>
+<?
   }
 
   public static function updateSettings ($settings)
