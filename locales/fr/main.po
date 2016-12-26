@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-26 18:18+0100\n"
-"PO-Revision-Date: 2016-12-26 18:19+0100\n"
+"POT-Creation-Date: 2016-12-26 18:33+0100\n"
+"PO-Revision-Date: 2016-12-26 18:34+0100\n"
 "Last-Translator: Didier Verna <didier@didierverna.net>\n"
 "Language-Team: French <didier@didierverna.net>\n"
 "Language: French\n"
@@ -50,9 +50,6 @@ msgstr "Vous devez fournir une clé publique et une clé privée avant d'activer
 
 msgid "Configuration successfully saved"
 msgstr "Configuration sauvegardée avec succès"
-
-msgid "Plugin activation"
-msgstr "Activation du plugin"
 
 msgid "Public Key:"
 msgstr "Clé publique:"

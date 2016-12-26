@@ -87,7 +87,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
     echo sprintf ('<p class="message">%s</p>', $msg_list[$msg]);
 ?>
     <form method="post" action="<? echo $p_url; ?>" id="setting-form">
-      <fieldset id="plugin"><h4><? echo __('Plugin activation'); ?></h4>
+      <fieldset id="plugin">
 	<p class="field">
 	  <label>
 	    <?
