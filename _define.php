@@ -26,7 +26,7 @@ $this->registerModule
 ('noCAPTCHA',
  __('Protect the comment submission form with a noCAPTCHA'),
  'Didier Verna',
- '1.0-b6',
+ '1.0-b7',
  array ('type'        => 'plugin',
 	'permissions' => 'admin'));
 
