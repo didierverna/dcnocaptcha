@@ -88,7 +88,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 ?>
     <form method="post" action="<? echo $p_url; ?>" id="setting-form">
       <fieldset id="plugin">
-	<p>
+	<p class="field">
 	  <label class="classic">
 	    <?
 	       echo __('Public Key:') . ' '
@@ -97,7 +97,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	    ?>
 	  </label>
 	</p>
-	<p>
+	<p class="field">
 	  <label class="classic">
 	    <?
 	       echo __('Private Key:') . ' '
