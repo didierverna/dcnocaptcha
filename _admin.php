@@ -57,7 +57,7 @@ class nocaptchaAdmBhv
   <h4>noCAPTCHA</h4>
   <p>
     <label class="classic">
-    <?
+    <?php
        echo __('Theme:') . ' '
 	  . form::radio (array ('nocaptcha_theme'),
 			 'light',
@@ -72,7 +72,7 @@ class nocaptchaAdmBhv
   </p>
   <p>
     <label class="classic">
-    <?
+    <?php
        echo __('Size:') . ' '
 	  . form::radio (array ('nocaptcha_size'),
 			 'normal',
@@ -87,16 +87,16 @@ class nocaptchaAdmBhv
   </p>
   <p>
     <label class="classic">
-      <?
-      echo form::checkbox ('nocaptcha_blog_enable',
-			   1,
-			   $settings->get ('nocaptcha_blog_enable'))
-	       . __('Enable noCAPTCHA for this blog');
+      <?php
+	 echo form::checkbox ('nocaptcha_blog_enable',
+			      1,
+			      $settings->get ('nocaptcha_blog_enable'))
+	    . __('Enable noCAPTCHA for this blog');
       ?>
     </label>
   </p>
 </div>
-<?
+<?php
   }
 
   public static function updateSettings ($settings)

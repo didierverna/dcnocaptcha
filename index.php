@@ -82,15 +82,15 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
   </head>
   <body>
     <h2>noCAPTCHA</h2>
-<?
+<?php
   if (isset ($msg_list[$msg]))
     echo sprintf ('<p class="message">%s</p>', $msg_list[$msg]);
 ?>
-    <form method="post" action="<? echo $p_url; ?>" id="setting-form">
+    <form method="post" action="<?php echo $p_url; ?>" id="setting-form">
       <fieldset id="plugin">
 	<p class="field">
 	  <label class="classic">
-	    <?
+	    <?php
 	       echo __('Public Key:') . ' '
 		  . form::field (array ('nocaptcha_public_key'), 50, 255,
 				 $nocaptcha_public_key);
@@ -99,7 +99,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	</p>
 	<p class="field">
 	  <label class="classic">
-	    <?
+	    <?php
 	       echo __('Private Key:') . ' '
 		  . form::field (array ('nocaptcha_private_key'), 50, 255,
 				 $nocaptcha_private_key);
@@ -107,13 +107,13 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  </label>
 	</p>
 	<p class="form-note">
-	  <?
+	  <?php
 	     echo __('To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don\'t have them, go to <a href="https://www.google.com/recaptcha/admin/create?app=php" target="_blank">reCAPTCHA</a> and create them.');
 	  ?>
 	</p>
 	<p>
 	  <label class="classic">
-	    <?
+	    <?php
 	       echo __('Post Method:') . ' '
 		  . form::radio (array ('nocaptcha_post_method'),
 				 'default',
@@ -129,13 +129,13 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  </label>
 	</p>
 	<p class="form-note">
-	  <?
+	  <?php
 	     echo __('Try the cURL post method if you\'re experiencing problems with the CAPTCHA response, e.g. errors such as "invalid-json".');
 	  ?>
 	</p>
 	<p>
 	  <label class="classic">
-	    <?
+	    <?php
 	       echo form::checkbox (array ('nocaptcha_active'), '1',
 				    $nocaptcha_active)
 		  . __('Enable extension');
@@ -146,8 +146,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 
       <div class="clear">
 	<p>
-	  <input type="submit" name="save" value="<? echo __('save'); ?>" />
-	  <?
+	  <input type="submit" name="save" value="<?php echo __('save'); ?>" />
+	  <?php
 	     echo $core->formNonce ()
 		. form::hidden (array ('p'),       'nocaptcha')
 		. form::hidden (array ('action'),  'savesetting')
@@ -157,12 +157,12 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
       </div>
     </form>
 
-    <? dcPage::helpBlock ('nocaptcha'); ?>
+    <?php dcPage::helpBlock ('nocaptcha'); ?>
 
     <hr class="clear" />
     <p class="right">
       noCAPTCHA
-      - <? echo $core->plugins->moduleInfo ('nocaptcha', 'version'); ?>
+      - <?php echo $core->plugins->moduleInfo ('nocaptcha', 'version'); ?>
       &nbsp; <img alt="noCAPTCHA" src="index.php?pf=nocaptcha/icon.png" />
     </p>
   </body>
