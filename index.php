@@ -34,8 +34,8 @@ $core->blog->settings->addNamespace ('recaptcha');
 $settings = $core->blog->settings->recaptcha;
 
 $recaptcha_active      = (boolean) $settings->recaptcha_active;
-$recaptcha_public_key  = (string) $settings->recaptcha_public_key;
-$recaptcha_private_key = (string) $settings->recaptcha_private_key;
+$recaptcha_public_key  =  (string) $settings->recaptcha_public_key;
+$recaptcha_private_key =  (string) $settings->recaptcha_private_key;
 
 if ($action == 'savesetting')
 {
@@ -61,9 +61,9 @@ if ($action == 'savesetting')
     http::redirect ('plugin.php?p=recaptcha&section=' . $section
 		  . '&msg=' . $action);
   }
-  catch (Exception $e)
+  catch (Exception $exception)
   {
-    $core->error->add ($e->getMessage ());
+    $core->error->add ($exception->getMessage ());
   }
 }
 
@@ -115,4 +115,5 @@ reCAPTCHA - ' . $core->plugins->moduleInfo ('recaptcha', 'version')
 </p>
 </body>
 </html>';
+
 ?>
