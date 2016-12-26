@@ -130,7 +130,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	</p>
 	<p class="form-note">
 	  <?
-	     echo __('Try the cURL post method if you're experiencing problems with the CAPTCHA response, e.g. errors such as "Invalid JSON".');
+	     echo __('Try the cURL post method if you\'re experiencing problems with the CAPTCHA response, e.g. errors such as "Invalid JSON".');
 	  ?>
 	</p>
 	<p class="field">
