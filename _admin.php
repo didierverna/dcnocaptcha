@@ -58,16 +58,6 @@ class nocaptchaAdmBhv
   <p>
     <label class="classic">
     <?
-       echo form::checkbox ('nocaptcha_blog_enable',
-			    1,
-			    $settings->get ('nocaptcha_blog_enable'))
-	  . __('Enable noCAPTCHA for this blog');
-    ?>
-    </label>
-  </p>
-  <p>
-    <label class="classic">
-    <?
        echo __('Theme:') . ' '
 	  . form::radio (array ('nocaptcha_theme'),
 			 'light',
@@ -93,6 +83,16 @@ class nocaptchaAdmBhv
 			 ($size == 'compact' ? true : false))
 	  . __('Compact');
     ?>
+    </label>
+  </p>
+  <p>
+    <label class="classic">
+      <?
+      echo form::checkbox ('nocaptcha_blog_enable',
+			   1,
+			   $settings->get ('nocaptcha_blog_enable'))
+	       . __('Enable noCAPTCHA for this blog');
+      ?>
     </label>
   </p>
 </div>
