@@ -88,8 +88,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 ?>
     <form method="post" action="<? echo $p_url; ?>" id="setting-form">
       <fieldset id="plugin">
-	<p class="field">
-	  <label>
+	<p>
+	  <label class="classic">
 	    <?
 	       echo __('Public Key:') . ' '
 		  . form::field (array ('nocaptcha_public_key'), 50, 255,
@@ -97,8 +97,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	    ?>
 	  </label>
 	</p>
-	<p class="field">
-	  <label>
+	<p>
+	  <label class="classic">
 	    <?
 	       echo __('Private Key:') . ' '
 		  . form::field (array ('nocaptcha_private_key'), 50, 255,
@@ -111,7 +111,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	     echo __('To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don\'t have them, go to <a href="https://www.google.com/recaptcha/admin/create?app=php" target="_blank">reCAPTCHA</a> and create them.');
 	  ?>
 	</p>
-	<p class="field">
+	<p>
 	  <label class="classic">
 	    <?
 	       echo __('Post Method:') . ' '
@@ -133,8 +133,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	     echo __('Try the cURL post method if you\'re experiencing problems with the CAPTCHA response, e.g. errors such as "invalid-json".');
 	  ?>
 	</p>
-	<p class="field">
-	  <label>
+	<p>
+	  <label class="classic">
 	    <?
 	       echo form::checkbox (array ('nocaptcha_active'), '1',
 				    $nocaptcha_active)
