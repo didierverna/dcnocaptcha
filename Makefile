@@ -19,14 +19,14 @@
 
 
 zip:
-	git archive --output=recaptcha.zip \
-	  --prefix=recaptcha/ --worktree-attributes HEAD
+	git archive --output=nocaptcha.zip \
+	  --prefix=nocaptcha/ --worktree-attributes HEAD
 
 
 clean:
 
 distclean: clean
-	-rm recaptcha.zip
+	-rm nocaptcha.zip
 
 
 .PHONY: zip clean distclean

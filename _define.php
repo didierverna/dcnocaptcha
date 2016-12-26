@@ -23,7 +23,7 @@ if (! defined ('DC_RC_PATH'))
   return;
 
 $this->registerModule
-('reCAPTCHA',
+('noCAPTCHA',
  __('Protect the comment submission form with a noCAPTCHA'),
  'Didier Verna',
  '1.0-b6',

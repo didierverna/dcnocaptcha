@@ -25,28 +25,28 @@
 if (! defined ('DC_CONTEXT_ADMIN'))
   return;
 
-$core->blog->settings->addNamespace ('recaptcha');
+$core->blog->settings->addNamespace ('nocaptcha');
 
 $core->addBehavior ('adminBlogPreferencesForm',
-		    array ('recaptchaAdmBhv', 'preferencesForm'));
+		    array ('nocaptchaAdmBhv', 'preferencesForm'));
 $core->addBehavior ('adminBeforeBlogSettingsUpdate',
-		    array ('recaptchaAdmBhv', 'updateSettings'));
+		    array ('nocaptchaAdmBhv', 'updateSettings'));
 
-$_menu['Plugins']->addItem ('reCAPTCHA',
-			    'plugin.php?p=recaptcha',
-			    'index.php?pf=recaptcha/icon.png',
-			    preg_match ('/plugin.php\?p=recaptcha(&.*)?$/',
+$_menu['Plugins']->addItem ('noCAPTCHA',
+			    'plugin.php?p=nocaptcha',
+			    'index.php?pf=nocaptcha/icon.png',
+			    preg_match ('/plugin.php\?p=nocaptcha(&.*)?$/',
 					$_SERVER['REQUEST_URI']),
 			    $core->auth->check ('admin', $core->blog->id));
 
 
-class recaptchaAdmBhv
+class nocaptchaAdmBhv
 {
   public static function preferencesForm ($core)
   {
-    $settings = $core->blog->settings->recaptcha;
-    $theme    = $settings->get ('recaptcha_theme');
-    $size     = $settings->get ('recaptcha_size');
+    $settings = $core->blog->settings->nocaptcha;
+    $theme    = $settings->get ('nocaptcha_theme');
+    $size     = $settings->get ('nocaptcha_size');
 
 ?>
 <div class="fieldset">
@@ -54,9 +54,9 @@ class recaptchaAdmBhv
   <p>
     <label class="classic">
     <?
-       echo form::checkbox ('recaptcha_blog_enable',
+       echo form::checkbox ('nocaptcha_blog_enable',
 			    1,
-			    $settings->get ('recaptcha_blog_enable'))
+			    $settings->get ('nocaptcha_blog_enable'))
 	  . __('Enable noCAPTCHA for this blog');
     ?>
     </label>
@@ -65,11 +65,11 @@ class recaptchaAdmBhv
     <label class="classic">
     <?
        echo __('Theme:') . ' '
-	  . form::radio (array ('recaptcha_theme'),
+	  . form::radio (array ('nocaptcha_theme'),
 			 'light',
 			 ($theme == 'light' ? true : false))
 	  . __('Light') . ' '
-	  . form::radio (array ('recaptcha_theme'),
+	  . form::radio (array ('nocaptcha_theme'),
 			 'dark',
 			 ($theme == 'dark' ? true : false))
 	  . __('Dark');
@@ -80,11 +80,11 @@ class recaptchaAdmBhv
     <label class="classic">
     <?
        echo __('Size:') . ' '
-	  . form::radio (array ('recaptcha_size'),
+	  . form::radio (array ('nocaptcha_size'),
 			 'normal',
 			 ($size == 'normal' ? true : false))
 	  . __('Normal') . ' '
-	  . form::radio (array ('recaptcha_size'),
+	  . form::radio (array ('nocaptcha_size'),
 			 'compact',
 			 ($size == 'compact' ? true : false))
 	  . __('Compact');
@@ -97,19 +97,19 @@ class recaptchaAdmBhv
 
   public static function updateSettings ($settings)
   {
-    $settings->recaptcha->put ('recaptcha_blog_enable',
-			       $_POST['recaptcha_blog_enable']);
-    if ($_POST['recaptcha_blog_enable'] == 1)
+    $settings->nocaptcha->put ('nocaptcha_blog_enable',
+			       $_POST['nocaptcha_blog_enable']);
+    if ($_POST['nocaptcha_blog_enable'] == 1)
       {
-	if (empty ($_POST['recaptcha_theme']))
-	  $_POST['recaptcha_theme'] = 'light';
+	if (empty ($_POST['nocaptcha_theme']))
+	  $_POST['nocaptcha_theme'] = 'light';
 
-	if (empty ($_POST['recaptcha_size']))
-	  $_POST['recaptcha_size'] = 'normal';
+	if (empty ($_POST['nocaptcha_size']))
+	  $_POST['nocaptcha_size'] = 'normal';
       }
 
-    $settings->recaptcha->put ('recaptcha_theme', $_POST['recaptcha_theme']);
-    $settings->recaptcha->put ('recaptcha_size', $_POST['recaptcha_size']);
+    $settings->nocaptcha->put ('nocaptcha_theme', $_POST['nocaptcha_theme']);
+    $settings->nocaptcha->put ('nocaptcha_size',  $_POST['nocaptcha_size']);
   }
 }
 

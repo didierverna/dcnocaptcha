@@ -30,35 +30,35 @@ $action  = isset ($_POST['action']) ? $_POST['action'] : '';
 $section = isset ($_REQUEST['section']) ? $_REQUEST['section'] : '';
 $msg     = isset ($_REQUEST['msg']) ? $_REQUEST['msg'] : '';
 
-$core->blog->settings->addNamespace ('recaptcha');
-$settings = $core->blog->settings->recaptcha;
+$core->blog->settings->addNamespace ('nocaptcha');
+$settings = $core->blog->settings->nocaptcha;
 
-$recaptcha_active      = (boolean) $settings->recaptcha_active;
-$recaptcha_public_key  =  (string) $settings->recaptcha_public_key;
-$recaptcha_private_key =  (string) $settings->recaptcha_private_key;
+$nocaptcha_active      = (boolean) $settings->nocaptcha_active;
+$nocaptcha_public_key  =  (string) $settings->nocaptcha_public_key;
+$nocaptcha_private_key =  (string) $settings->nocaptcha_private_key;
 
 if ($action == 'savesetting')
 {
   try
   {
-    $recaptcha_public_key  = $_POST['recaptcha_public_key'];
-    $recaptcha_private_key = $_POST['recaptcha_private_key'];
-    $recaptcha_active      = ! empty ($_POST['recaptcha_active']);
+    $nocaptcha_public_key  = $_POST['nocaptcha_public_key'];
+    $nocaptcha_private_key = $_POST['nocaptcha_private_key'];
+    $nocaptcha_active      = ! empty ($_POST['nocaptcha_active']);
 
-    if ((empty ($recaptcha_public_key) || empty ($recaptcha_private_key))
-	&& $recaptcha_active)
+    if ((empty ($nocaptcha_public_key) || empty ($nocaptcha_private_key))
+	&& $nocaptcha_active)
     {
-      $recaptcha_active = false;
+      $nocaptcha_active = false;
       throw new Exception (__('You must enter a public and a private key before activating this plugin.'));
     }
 
-    $settings->put ('recaptcha_active',      $recaptcha_active);
-    $settings->put ('recaptcha_public_key',  $recaptcha_public_key);
-    $settings->put ('recaptcha_private_key', $recaptcha_private_key);
+    $settings->put ('nocaptcha_active',      $nocaptcha_active);
+    $settings->put ('nocaptcha_public_key',  $nocaptcha_public_key);
+    $settings->put ('nocaptcha_private_key', $nocaptcha_private_key);
 
     $core->blog->triggerBlog ();
 
-    http::redirect ('plugin.php?p=recaptcha&section=' . $section
+    http::redirect ('plugin.php?p=nocaptcha&section=' . $section
 		  . '&msg=' . $action);
   }
   catch (Exception $exception)
@@ -86,8 +86,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  <label>
 	    <?
 	       echo __('Public Key:') . ' '
-		  . form::field (array ('recaptcha_public_key'), 50, 255,
-				 $recaptcha_public_key);
+		  . form::field (array ('nocaptcha_public_key'), 50, 255,
+				 $nocaptcha_public_key);
 	    ?>
 	  </label>
 	</p>
@@ -95,8 +95,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  <label>
 	    <?
 	       echo __('Private Key:') . ' '
-		  . form::field (array ('recaptcha_private_key'), 50, 255,
-				 $recaptcha_private_key);
+		  . form::field (array ('nocaptcha_private_key'), 50, 255,
+				 $nocaptcha_private_key);
 	    ?>
 	  </label>
 	</p>
@@ -108,8 +108,8 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	<p class="field">
 	  <label>
 	    <?
-	       echo form::checkbox (array ('recaptcha_active'), '1',
-				    $recaptcha_active)
+	       echo form::checkbox (array ('nocaptcha_active'), '1',
+				    $nocaptcha_active)
 		  . __('Enable extension');
 	    ?>
 	  </label>
@@ -121,7 +121,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  <input type="submit" name="save" value="<? echo __('save'); ?>" />
 	  <?
 	     echo $core->formNonce ()
-		. form::hidden (array ('p'),       'recaptcha')
+		. form::hidden (array ('p'),       'nocaptcha')
 		. form::hidden (array ('action'),  'savesetting')
 		. form::hidden (array ('section'), $section);
 	  ?>
@@ -129,13 +129,13 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
       </div>
     </form>
 
-    <? dcPage::helpBlock ('recaptcha'); ?>
+    <? dcPage::helpBlock ('nocaptcha'); ?>
 
     <hr class="clear" />
     <p class="right">
       noCAPTCHA
-      - <? echo $core->plugins->moduleInfo ('recaptcha', 'version'); ?>
-      &nbsp; <img alt="noCAPTCHA" src="index.php?pf=recaptcha/icon.png" />
+      - <? echo $core->plugins->moduleInfo ('nocaptcha', 'version'); ?>
+      &nbsp; <img alt="noCAPTCHA" src="index.php?pf=nocaptcha/icon.png" />
     </p>
   </body>
 </html>

@@ -25,22 +25,22 @@
 if (! defined ('DC_RC_PATH'))
   return;
 
-$core->blog->settings->addNamespace ('recaptcha');
+$core->blog->settings->addNamespace ('nocaptcha');
 
 require_once dirname(__FILE__).'/lib/recaptcha/src/autoload.php';
 
 $core->addBehavior ('publicHeadContent',
-		    array ('recaptchaBhv', 'publicheadContent'));
+		    array ('nocaptchaBhv', 'publicheadContent'));
 $core->addBehavior ('publicCommentFormAfterContent',
-		    array ('recaptchaBhv','publicCommentFormAfterContent'));
+		    array ('nocaptchaBhv','publicCommentFormAfterContent'));
 $core->addBehavior ('publicBeforeCommentCreate',
-		    array ('recaptchaBhv','publicBeforeCommentCreate'));
+		    array ('nocaptchaBhv','publicBeforeCommentCreate'));
 
-class recaptchaBhv
+class nocaptchaBhv
 {
   public static function publicheadContent ($core)
   {
-    if (! $core->blog->settings->recaptcha->recaptcha_active)
+    if (! $core->blog->settings->nocaptcha->nocaptcha_active)
       return;
 
     echo '<script type="text/javascript" '
@@ -50,9 +50,9 @@ class recaptchaBhv
 
   public static function publicCommentFormAfterContent ($core, $_ctx)
   {
-    $settings = $core->blog->settings->recaptcha;
+    $settings = $core->blog->settings->nocaptcha;
 
-    if ((! $settings->recaptcha_active || ! $settings->recaptcha_blog_enable)
+    if ((! $settings->nocaptcha_active || ! $settings->nocaptcha_blog_enable)
 	&& empty ($_POST['preview']))
     return;
 
@@ -60,12 +60,12 @@ class recaptchaBhv
     {
       if (isset ($_POST['g-recaptcha-response']))
       {
-	$recaptcha = new \ReCaptcha\ReCaptcha
-	($settings->recaptcha_private_key,
+	$nocaptcha = new \ReCaptcha\ReCaptcha
+	($settings->nocaptcha_private_key,
 	 // #### FIXME: because OVH doesn't support allow_url_fopen. Should
 	 // probably be a plugin option.
 	 new \ReCaptcha\RequestMethod\CurlPost ());
-	$response = $recaptcha->verify ($_POST['g-recaptcha-response'],
+	$response = $nocaptcha->verify ($_POST['g-recaptcha-response'],
 					$_SERVER['REMOTE_ADDR']);
 
 	if (! $response->isSuccess ())
@@ -81,50 +81,50 @@ class recaptchaBhv
 	  }
 	  echo '</p>';
 	  echo '<div class="g-recaptcha" data-sitekey="'
-	     . $settings->recaptcha_public_key
+	     . $settings->nocaptcha_public_key
 	     . '" data-theme="'
-	     . $settings->recaptcha_theme
+	     . $settings->nocaptcha_theme
 	     . '" data-size="'
-	     . $settings->recaptcha_size
+	     . $settings->nocaptcha_size
 	     . '"></div>';
 	}
 	else
-	  echo '<input type="hidden" name="recaptcha" value="1" />';
+	  echo '<input type="hidden" name="nocaptcha" value="1" />';
       }
       else
-	echo '<input type="hidden" name="recaptcha" value="1" />';
+	echo '<input type="hidden" name="nocaptcha" value="1" />';
     }
     else
     {
-      if (empty ($_POST['recaptcha']))
+      if (empty ($_POST['nocaptcha']))
 	echo '<div class="g-recaptcha" data-sitekey="'
-	   . $settings->recaptcha_public_key
+	   . $settings->nocaptcha_public_key
 	   . '" data-theme="'
-	   . $settings->recaptcha_theme
+	   . $settings->nocaptcha_theme
 	   . '" data-size="'
-	   . $settings->recaptcha_size
+	   . $settings->nocaptcha_size
 	   . '"></div>' . "\n";
       else
-	echo '<input type="hidden" name="recaptcha" value="1" />';
+	echo '<input type="hidden" name="nocaptcha" value="1" />';
     }
   }
 
   public static function publicBeforeCommentCreate ($cur)
   {
     global $core;
-    $settings = $core->blog->settings->recaptcha;
+    $settings = $core->blog->settings->nocaptcha;
 
-    if (! $settings->recaptcha_active
-	|| ! $settings->recaptcha_blog_enable
-	|| $_POST['recaptcha'])
+    if (! $settings->nocaptcha_active
+	|| ! $settings->nocaptcha_blog_enable
+	|| $_POST['nocaptcha'])
     return;
 
-    $recaptcha = new \ReCaptcha\ReCaptcha
-    ($settings->recaptcha_private_key,
+    $nocaptcha = new \ReCaptcha\ReCaptcha
+    ($settings->nocaptcha_private_key,
      // #### FIXME: because OVH doesn't support allow_url_fopen. Should
      // probably be a plugin option.
      new \ReCaptcha\RequestMethod\CurlPost ());
-    $response = $recaptcha->verify ($_POST['g-recaptcha-response'],
+    $response = $nocaptcha->verify ($_POST['g-recaptcha-response'],
 				    $_SERVER['REMOTE_ADDR']);
 
     if (! $response->isSuccess ())

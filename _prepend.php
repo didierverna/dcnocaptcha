@@ -25,9 +25,9 @@ if (! defined ('DC_RC_PATH'))
 
 global $__autoload, $core;
 
-$__autoload['recaptcha'] = dirname (__FILE__).'/inc/class.recaptcha.php';
+$__autoload['nocaptcha'] = dirname (__FILE__).'/inc/class.nocaptcha.php';
 
-$core->url->register ('recaptcha', 'recaptcha', '^recaptcha/(.+)$',
-		      array ('recaptchaUrl', 'recaptcha'));
+$core->url->register ('nocaptcha', 'nocaptcha', '^nocaptcha/(.+)$',
+		      array ('nocaptchaUrl', 'nocaptcha'));
 
 ?>
