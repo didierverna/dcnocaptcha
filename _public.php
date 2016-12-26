@@ -60,11 +60,14 @@ class nocaptchaBhv
     {
       if (isset ($_POST['g-recaptcha-response']))
       {
-	$nocaptcha = new \ReCaptcha\ReCaptcha
-	($settings->nocaptcha_private_key,
-	 // #### FIXME: because OVH doesn't support allow_url_fopen. Should
-	 // probably be a plugin option.
-	 new \ReCaptcha\RequestMethod\CurlPost ());
+	if ($settings->nocaptcha_post_method == 'curl')
+	  $nocaptcha = new \ReCaptcha\ReCaptcha
+	    ($settings->nocaptcha_private_key,
+	     new \ReCaptcha\RequestMethod\CurlPost ());
+	else
+	  $nocaptcha = new \ReCaptcha\ReCaptcha
+	    ($settings->nocaptcha_private_key);
+
 	$response = $nocaptcha->verify ($_POST['g-recaptcha-response'],
 					$_SERVER['REMOTE_ADDR']);
 
@@ -119,11 +122,14 @@ class nocaptchaBhv
 	|| $_POST['nocaptcha'])
     return;
 
-    $nocaptcha = new \ReCaptcha\ReCaptcha
-    ($settings->nocaptcha_private_key,
-     // #### FIXME: because OVH doesn't support allow_url_fopen. Should
-     // probably be a plugin option.
-     new \ReCaptcha\RequestMethod\CurlPost ());
+    if ($settings->nocaptcha_post_method == 'curl')
+      $nocaptcha = new \ReCaptcha\ReCaptcha
+	($settings->nocaptcha_private_key,
+	 new \ReCaptcha\RequestMethod\CurlPost ());
+    else
+      $nocaptcha = new \ReCaptcha\ReCaptcha
+	($settings->nocaptcha_private_key);
+
     $response = $nocaptcha->verify ($_POST['g-recaptcha-response'],
 				    $_SERVER['REMOTE_ADDR']);
 
