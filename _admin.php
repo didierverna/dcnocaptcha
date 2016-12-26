@@ -48,6 +48,10 @@ class nocaptchaAdmBhv
     $theme    = $settings->get ('nocaptcha_theme');
     $size     = $settings->get ('nocaptcha_size');
 
+    if (empty ($theme))
+      $theme = 'light';
+    if (empty ($size))
+      $size = 'normal';
 ?>
 <div class="fieldset">
   <h4>noCAPTCHA</h4>
