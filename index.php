@@ -69,51 +69,75 @@ if ($action == 'savesetting')
 
 $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 
-echo '<html><head><title>' . __('reCAPTCHA') .'</title></head>
-<body>
-<h2>' . __('reCAPTCHA') . '</h2>';
-
-if (isset ($msg_list[$msg]))
-  echo sprintf ('<p class="message">%s</p>', $msg_list[$msg]);
-
-echo '<form method="post" action="' . $p_url . '" id="setting-form">
-
-<fieldset id="plugin"><h4>' . __('Plugin activation') . '</h4>
-<p class="field"><label>' . __('Public Key:')
-  . form::field (array ('recaptcha_public_key'), 50, 255,
-		  $recaptcha_public_key)
-  .'
-</label></p>
-<p class="field"><label>' . __('Private Key:')
-  . form::field (array ('recaptcha_private_key'), 50, 255,
-		 $recaptcha_private_key)
-  .'
-</label></p>
-<p class="form-note">'
-  . __('To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don\'t have them, go to <a href="https://www.google.com/recaptcha/admin/create?app=php" target="_blank">reCAPTCHA</a> and create them.')
-  . '</p>
-<p class="field"><label>'
-  . form::checkbox (array ('recaptcha_active'), '1', $recaptcha_active)
-  . __('Enable extension') . '</label></p>
-</fieldset>
-
-<div class="clear">
-<p><input type="submit" name="save" value="' . __('save') . '" />'
-  . $core->formNonce ()
-  . form::hidden (array ('p'),       'recaptcha')
-  . form::hidden (array ('action'),  'savesetting')
-  . form::hidden (array ('section'), $section) .'
-</p></div>
-</form>';
-
-dcPage::helpBlock ('recaptcha');
-
-echo '<hr class="clear"/><p class="right">
-reCAPTCHA - ' . $core->plugins->moduleInfo ('recaptcha', 'version')
-. '&nbsp;
-<img alt="' . __('reCAPTCHA') . '" src="index.php?pf=recaptcha/icon.png" />
-</p>
-</body>
-</html>';
-
 ?>
+<html>
+  <head>
+    <title><? echo __('reCAPTCHA'); ?></title>
+  </head>
+  <body>
+    <h2><? echo __('reCAPTCHA'); ?></h2>
+<?
+  if (isset ($msg_list[$msg]))
+    echo sprintf ('<p class="message">%s</p>', $msg_list[$msg]);
+?>
+    <form method="post" action="<? echo $p_url; ?>" id="setting-form">
+      <fieldset id="plugin"><h4><? echo __('Plugin activation'); ?></h4>
+	<p class="field">
+	  <label>
+	    <?
+	       echo __('Public Key:') . ' '
+		  . form::field (array ('recaptcha_public_key'), 50, 255,
+				 $recaptcha_public_key);
+	    ?>
+	  </label>
+	</p>
+	<p class="field">
+	  <label>
+	    <?
+	       echo __('Private Key:') . ' '
+		  . form::field (array ('recaptcha_private_key'), 50, 255,
+				 $recaptcha_private_key);
+	    ?>
+	  </label>
+	</p>
+	<p class="form-note">
+	  <?
+	     echo __('To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don\'t have them, go to <a href="https://www.google.com/recaptcha/admin/create?app=php" target="_blank">reCAPTCHA</a> and create them.');
+	  ?>
+	</p>
+	<p class="field">
+	  <label>
+	    <?
+	       echo form::checkbox (array ('recaptcha_active'), '1',
+				    $recaptcha_active)
+		  . __('Enable extension');
+	    ?>
+	  </label>
+	</p>
+      </fieldset>
+
+      <div class="clear">
+	<p>
+	  <input type="submit" name="save" value="<? echo __('save'); ?>" />
+	  <?
+	     echo $core->formNonce ()
+		. form::hidden (array ('p'),       'recaptcha')
+		. form::hidden (array ('action'),  'savesetting')
+		. form::hidden (array ('section'), $section);
+	  ?>
+	</p>
+      </div>
+    </form>
+
+    <? dcPage::helpBlock ('recaptcha'); ?>
+
+    <hr class="clear" />
+    <p class="right">
+      reCAPTCHA
+      - <? echo $core->plugins->moduleInfo ('recaptcha', 'version'); ?>
+      &nbsp;
+      <img alt="<? echo __('reCAPTCHA'); ?>"
+	   src="index.php?pf=recaptcha/icon.png" />
+    </p>
+  </body>
+</html>
