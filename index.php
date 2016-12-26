@@ -72,10 +72,10 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 ?>
 <html>
   <head>
-    <title><? echo __('noCAPTCHA'); ?></title>
+    <title>noCAPTCHA</title>
   </head>
   <body>
-    <h2><? echo __('noCAPTCHA'); ?></h2>
+    <h2>noCAPTCHA</h2>
 <?
   if (isset ($msg_list[$msg]))
     echo sprintf ('<p class="message">%s</p>', $msg_list[$msg]);
@@ -135,9 +135,7 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
     <p class="right">
       noCAPTCHA
       - <? echo $core->plugins->moduleInfo ('recaptcha', 'version'); ?>
-      &nbsp;
-      <img alt="<? echo __('noCAPTCHA'); ?>"
-	   src="index.php?pf=recaptcha/icon.png" />
+      &nbsp; <img alt="noCAPTCHA" src="index.php?pf=recaptcha/icon.png" />
     </p>
   </body>
 </html>

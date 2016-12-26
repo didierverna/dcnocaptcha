@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-21 18:03+0100\n"
+"POT-Creation-Date: 2016-12-26 12:12+0100\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: _admin.php:25 _admin.php:42 _define.php:26 index.php:68 index.php:71
-msgid "reCAPTCHA"
+#: _admin.php:60
+msgid "Enable noCAPTCHA for this blog"
 msgstr ""
 
-#: _admin.php:49
-msgid "Enable reCAPTCHA for this blog"
-msgstr ""
-
-#: _admin.php:53
+#: _admin.php:67
 msgid "Theme:"
 msgstr ""
 
-#: _admin.php:57
+#: _admin.php:71
 msgid "Light"
 msgstr ""
 
-#: _admin.php:61
+#: _admin.php:75
 msgid "Dark"
 msgstr ""
 
-#: _admin.php:65
+#: _admin.php:82
 msgid "Size:"
 msgstr ""
 
-#: _admin.php:69
+#: _admin.php:86
 msgid "Normal"
 msgstr ""
 
-#: _admin.php:73
+#: _admin.php:90
 msgid "Compact"
 msgstr ""
 
@@ -53,34 +49,38 @@ msgstr ""
 msgid "Protect the comment submission form with a noCAPTCHA"
 msgstr ""
 
-#: _public.php:65 _public.php:129
+#: _public.php:77 _public.php:131
 msgid "The CAPTCHA wasn't entered correctly."
 msgstr ""
 
-#: index.php:44
+#: index.php:52
 msgid "You must enter a public and a private key before activating this plugin."
 msgstr ""
 
-#: index.php:63
+#: index.php:70
 msgid "Configuration successfully saved"
 msgstr ""
 
-#: index.php:81
+#: index.php:84
 msgid "Plugin activation"
 msgstr ""
 
-#: index.php:82
+#: index.php:88
 msgid "Public Key:"
 msgstr ""
 
-#: index.php:85
+#: index.php:97
 msgid "Private Key:"
 msgstr ""
 
-#: index.php:88
+#: index.php:105
 msgid "To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don't have them, go to <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> and create them."
 msgstr ""
 
-#: index.php:91
+#: index.php:113
 msgid "Enable extension"
+msgstr ""
+
+#: index.php:121
+msgid "save"
 msgstr ""

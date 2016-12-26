@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-21 18:03+0100\n"
-"PO-Revision-Date: 2016-12-21 18:04+0100\n"
+"POT-Creation-Date: 2016-12-26 12:12+0100\n"
+"PO-Revision-Date: 2016-12-26 12:13+0100\n"
 "Last-Translator: Didier Verna <didier@didierverna.net>\n"
 "Language-Team: French <didier@didierverna.net>\n"
 "Language: French\n"
@@ -17,11 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "reCAPTCHA"
-msgstr "reCAPTCHA"
-
-msgid "Enable reCAPTCHA for this blog"
-msgstr "Activer reCAPTCHA sur ce blog"
+#, fuzzy
+msgid "Enable noCAPTCHA for this blog"
+msgstr "Activer noCAPTCHA sur ce blog"
 
 msgid "Theme:"
 msgstr "Thème:"
@@ -67,3 +65,6 @@ msgstr "Pour activer ce plugin, vous devez renseigner vos clés reCAPTCHA publiq
 
 msgid "Enable extension"
 msgstr "Activer l'extension"
+
+msgid "save"
+msgstr ""
