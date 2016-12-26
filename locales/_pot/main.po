@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: noCAPTCHA 1.0\n"
 "Report-Msgid-Bugs-To: didier@didierverna.net\n"
-"POT-Creation-Date: 2016-12-26 12:12+0100\n"
+"POT-Creation-Date: 2016-12-26 18:10+0100\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: _admin.php:60
+#: _admin.php:64
 msgid "Enable noCAPTCHA for this blog"
 msgstr ""
 
-#: _admin.php:67
+#: _admin.php:71
 msgid "Theme:"
 msgstr ""
 
-#: _admin.php:71
+#: _admin.php:75
 msgid "Light"
 msgstr ""
 
-#: _admin.php:75
+#: _admin.php:79
 msgid "Dark"
 msgstr ""
 
-#: _admin.php:82
+#: _admin.php:86
 msgid "Size:"
 msgstr ""
 
-#: _admin.php:86
+#: _admin.php:90
 msgid "Normal"
 msgstr ""
 
-#: _admin.php:90
+#: _admin.php:94
 msgid "Compact"
 msgstr ""
 
@@ -49,38 +49,50 @@ msgstr ""
 msgid "Protect the comment submission form with a noCAPTCHA"
 msgstr ""
 
-#: _public.php:77 _public.php:131
+#: _public.php:80 _public.php:137
 msgid "The CAPTCHA wasn't entered correctly."
 msgstr ""
 
-#: index.php:52
+#: index.php:57
 msgid "You must enter a public and a private key before activating this plugin."
 msgstr ""
 
-#: index.php:70
+#: index.php:76
 msgid "Configuration successfully saved"
 msgstr ""
 
-#: index.php:84
+#: index.php:90
 msgid "Plugin activation"
 msgstr ""
 
-#: index.php:88
+#: index.php:94
 msgid "Public Key:"
 msgstr ""
 
-#: index.php:97
+#: index.php:103
 msgid "Private Key:"
 msgstr ""
 
-#: index.php:105
+#: index.php:111
 msgid "To activate this plugin you need to enter your reCAPTCHA public and private keys. If you don't have them, go to <a href=\"https://www.google.com/recaptcha/admin/create?app=php\" target=\"_blank\">reCAPTCHA</a> and create them."
 msgstr ""
 
-#: index.php:113
+#: index.php:117
+msgid "Post Method:"
+msgstr ""
+
+#: index.php:122
+msgid "Default"
+msgstr ""
+
+#: index.php:133
+msgid "Try the cURL post method if you're experiencing problems with the CAPTCHA response, e.g. errors such as \"Invalid JSON\"."
+msgstr ""
+
+#: index.php:141
 msgid "Enable extension"
 msgstr ""
 
-#: index.php:121
+#: index.php:149
 msgid "save"
 msgstr ""
