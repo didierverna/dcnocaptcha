@@ -50,14 +50,14 @@ class recaptchaAdmBhv
 
 ?>
 <div class="fieldset">
-  <h4>reCAPTCHA</h4>
+  <h4>noCAPTCHA</h4>
   <p>
     <label class="classic">
     <?
        echo form::checkbox ('recaptcha_blog_enable',
 			    1,
 			    $settings->get ('recaptcha_blog_enable'))
-	  . __('Enable reCAPTCHA for this blog');
+	  . __('Enable noCAPTCHA for this blog');
     ?>
     </label>
   </p>
