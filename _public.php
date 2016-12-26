@@ -40,7 +40,7 @@ class recaptchaBhv
 {
   public static function publicheadContent ($core)
   {
-    if (!$core->blog->settings->recaptcha->recaptcha_active)
+    if (! $core->blog->settings->recaptcha->recaptcha_active)
       return;
 
     echo '<script type="text/javascript" '
@@ -50,8 +50,9 @@ class recaptchaBhv
 
   public static function publicCommentFormAfterContent ($core, $_ctx)
   {
-    if ((!$core->blog->settings->recaptcha->recaptcha_active
-      || !$core->blog->settings->recaptcha->recaptcha_blog_enable)
+    $settings = $core->blog->settings->recaptcha;
+
+    if ((! $settings->recaptcha_active || ! $settings->recaptcha_blog_enable)
 	&& empty ($_POST['preview']))
     return;
 
@@ -60,7 +61,7 @@ class recaptchaBhv
       if (isset ($_POST['g-recaptcha-response']))
       {
 	$recaptcha = new \ReCaptcha\ReCaptcha
-	($core->blog->settings->recaptcha->recaptcha_private_key,
+	($settings->recaptcha_private_key,
 	 // #### FIXME: because OVH doesn't support allow_url_fopen. Should
 	 // probably be a plugin option.
 	 new \ReCaptcha\RequestMethod\CurlPost ());
@@ -80,55 +81,46 @@ class recaptchaBhv
 	  }
 	  echo '</p>';
 	  echo '<div class="g-recaptcha" data-sitekey="'
-	     . $core->blog->settings->recaptcha->recaptcha_public_key
+	     . $settings->recaptcha_public_key
 	     . '" data-theme="'
-	     . $core->blog->settings->recaptcha->recaptcha_theme
+	     . $settings->recaptcha_theme
 	     . '" data-size="'
-	     . $core->blog->settings->recaptcha->recaptcha_size
+	     . $settings->recaptcha_size
 	     . '"></div>';
 	}
 	else
-	{
 	  echo '<input type="hidden" name="recaptcha" value="1" />';
-	}
       }
       else
-      {
 	echo '<input type="hidden" name="recaptcha" value="1" />';
-      }
     }
     else
     {
       if (empty ($_POST['recaptcha']))
-      {
 	echo '<div class="g-recaptcha" data-sitekey="'
-	   . $core->blog->settings->recaptcha->recaptcha_public_key
+	   . $settings->recaptcha_public_key
 	   . '" data-theme="'
-	   . $core->blog->settings->recaptcha->recaptcha_theme
+	   . $settings->recaptcha_theme
 	   . '" data-size="'
-	   . $core->blog->settings->recaptcha->recaptcha_size
+	   . $settings->recaptcha_size
 	   . '"></div>' . "\n";
-      }
       else
-      {
 	echo '<input type="hidden" name="recaptcha" value="1" />';
-      }
     }
   }
 
   public static function publicBeforeCommentCreate ($cur)
   {
     global $core;
+    $settings = $core->blog->settings->recaptcha;
 
-    if (!$core->blog->settings->recaptcha->recaptcha_active
-	|| !$core->blog->settings->recaptcha->recaptcha_blog_enable
+    if (! $settings->recaptcha_active
+	|| ! $settings->recaptcha_blog_enable
 	|| $_POST['recaptcha'])
-    {
-      return;
-    }
+    return;
 
     $recaptcha = new \ReCaptcha\ReCaptcha
-    ($core->blog->settings->recaptcha->recaptcha_private_key,
+    ($settings->recaptcha_private_key,
      // #### FIXME: because OVH doesn't support allow_url_fopen. Should
      // probably be a plugin option.
      new \ReCaptcha\RequestMethod\CurlPost ());
@@ -136,9 +128,7 @@ class recaptchaBhv
 				    $_SERVER['REMOTE_ADDR']);
 
     if (! $response->isSuccess ())
-    {
       throw new Exception (__('The CAPTCHA wasn\'t entered correctly.'));
-    }
   }
 }
 
