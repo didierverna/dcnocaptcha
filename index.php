@@ -112,19 +112,19 @@ $msg_list = array ('savesetting' => __('Configuration successfully saved'));
 	  ?>
 	</p>
 	<p class="field">
-	  <label>
+	  <label class="classic">
 	    <?
-	    echo __('Post Method:') . ' '
-	       . form::radio (array ('nocaptcha_post_method'),
-			      'default',
-			      ($nocaptcha_post_method == 'default'
-			       ? true : false))
-	       . __('Default') . ' '
-	       . form::radio (array ('nocaptcha_post_method'),
-			      'curl',
-			      ($nocaptcha_post_method == 'curl'
-			       ? true : false))
-	       . 'cURL';
+	       echo __('Post Method:') . ' '
+		  . form::radio (array ('nocaptcha_post_method'),
+				 'default',
+				 ($nocaptcha_post_method == 'default'
+				  ? true : false))
+		  . __('Default') . ' '
+		  . form::radio (array ('nocaptcha_post_method'),
+				 'curl',
+				 ($nocaptcha_post_method == 'curl'
+				  ? true : false))
+		  . 'cURL';
 	    ?>
 	  </label>
 	</p>
